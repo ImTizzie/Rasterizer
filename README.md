@@ -20,16 +20,16 @@ For output, the program will create the image with the desired name (and format)
 
 ## Process
 
-### Read in the triangles
+### Reading in the triangles
 Utilizing [Syoyo's Obj Loader](https://github.com/tinyobjloader/tinyobjloader), we first load the mesh into our program and store the vertex positions into a buffer, taking every three consecutive vertices and creating a single triangle from them.
 
-### Convert the 3D coordinates into 2D image coordinates
+### Convertng the 3D coordinates into 2D image coordinates
 With the triangles now forming a 3D object, we create a bounding box for every triangle and build another for the entirety of the object, allowing us to display the object in such a way where it fills as much of the screen as possible without distoriton.
 
-### Draw triangles
+### Drawing triangles
 Using our previously created bounding boxes, we utilize barycentric coordinates in order to change the shape of our bounding boxes into a triangle that matches the actual 3D object.
 
-### Implement the Z-Buffer
+### Implementing the Z-Buffer
 Creating a buffer containing the z-coordinate of every pixel, we then store the interpolated z-coordinate of every vertex using the pixel's barycentric coordinates.
 
 ### Drawing the image
