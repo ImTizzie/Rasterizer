@@ -21,30 +21,7 @@ Image::~Image()
 
 void Image::setPixel(int x, int y, unsigned char r, unsigned char g, unsigned char b)
 {
-	// The pixel data is laid out row by row. Each row consists of 'width'
-	// columns, and each column consists of 3 unsigned chars.
-
-	// First check for bounds
-	if(y < 0 || y >= height) {
-		cout << "Row " << y << " is out of bounds" << endl;
-		return;
-	}
-	if(x < 0 || x >= width) {
-		cout << "Col " << x << " is out of bounds" << endl;
-		return;
-	}
-
-	// Since the origin (0, 0) of the image is the upper left corner, we need
-	// to flip the row to make the origin be the lower left corner.
-	y = height - y - 1;
-	// index corresponding to row and col, (assuming single component image)
-	int index = y*width + x;
-	// Multiply by 3 to get the index for the rgb components.
-	assert(index >= 0);
-	assert(3*index + 2 < (int)pixels.size());
-	pixels[3*index + 0] = r;
-	pixels[3*index + 1] = g;
-	pixels[3*index + 2] = b;
+	cout << "Had to hide this." << endl;
 }
 
 void Image::writeToFile(const string &filename)
